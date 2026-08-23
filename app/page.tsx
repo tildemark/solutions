@@ -579,15 +579,15 @@ export default function Home() {
 
         {/* Philosophy Section */}
         <section id="philosophy" className="py-8 border-t border-gray-900">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="lg:col-span-1">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-400 font-mono">Philosophy & Arch</span>
-              <h3 className="font-display text-2xl font-extrabold text-white mt-2 leading-tight">Rugged Hardware Meets Compliance</h3>
-              <p className="text-gray-400 text-xs mt-3 leading-relaxed">
-                As Head of IT and Data Protection Officer at Avega Bros Integrated Shipping Corp., my focus is building resilient software environments that stand up to rough environments—whether that is a shipping vessel at sea or a strict ISO compliance audit.
-              </p>
-            </div>
+          <div className="mb-8">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-400 font-mono">Philosophy & Architecture</span>
+            <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white mt-2 leading-tight">Rugged Hardware Meets Strict Compliance</h3>
+            <p className="text-gray-400 text-sm mt-2 leading-relaxed max-w-3xl">
+              As Head of IT and Data Protection Officer at Avega Bros Integrated Shipping Corp., my focus is building resilient software environments that stand up to rough environments—whether that is a shipping vessel at sea or a strict ISO compliance audit.
+            </p>
+          </div>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Pillar 1: On-Premises Isolation */}
             <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3 hover:border-cyan-500/30 transition-colors">
               <div className="text-cyan-400 text-lg"><i className="fas fa-server"></i></div>
@@ -597,21 +597,30 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Pillar 2: Secured Audit Ledgers */}
+            {/* Pillar 2: Cryptographic Audit Ledgers */}
             <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3 hover:border-emerald-500/30 transition-colors">
               <div className="text-emerald-400 text-lg"><i className="fas fa-fingerprint"></i></div>
-              <h4 className="font-bold text-white text-sm">Secured Audit Ledgers</h4>
+              <h4 className="font-bold text-white text-sm">Cryptographic Audit Ledgers</h4>
               <p className="text-gray-400 text-xs leading-relaxed">
-                Using chained row hashes (SHA-256) ensures absolute ledger compliance, perfect for corporate tax reconciliations or inventory asset verification.
+                Using blockchain-inspired chained SHA-256 row hashes ensures absolute tamper-evident compliance for corporate tax and asset verification.
               </p>
             </div>
 
-            {/* Pillar 3: Edge IoT & Remote Telemetry */}
+            {/* Pillar 3: DPO & Privacy Compliance */}
+            <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3 hover:border-indigo-500/30 transition-colors">
+              <div className="text-indigo-400 text-lg"><i className="fas fa-user-shield"></i></div>
+              <h4 className="font-bold text-white text-sm">DPO Privacy Compliance</h4>
+              <p className="text-gray-400 text-xs leading-relaxed">
+                Engineered around NPC (National Privacy Commission) and DPO regulations, featuring strict role permissions and automated privacy risk matrices.
+              </p>
+            </div>
+
+            {/* Pillar 4: Offline-First Telemetry & IoT */}
             <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3 hover:border-amber-500/30 transition-colors">
               <div className="text-amber-400 text-lg"><i className="fas fa-tower-cell"></i></div>
-              <h4 className="font-bold text-white text-sm">Edge IoT & Telemetry</h4>
+              <h4 className="font-bold text-white text-sm">Offline-First Telemetry & IoT</h4>
               <p className="text-gray-400 text-xs leading-relaxed">
-                Integrating local hardware sensors (RS485/Modbus/RFID) with cellular and satellite gateways like Cellular Bridge for low-latency remote monitoring.
+                Seamless local SQLite/Modbus telemetry logging for edge sites and vessels, automatically synchronizing data when cellular or satellite links reconnect.
               </p>
             </div>
           </div>
