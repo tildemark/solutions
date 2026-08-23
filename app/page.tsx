@@ -579,26 +579,39 @@ export default function Home() {
 
         {/* Philosophy Section */}
         <section id="philosophy" className="py-8 border-t border-gray-900">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-1">
               <span className="text-[10px] font-bold uppercase tracking-widest text-cyan-400 font-mono">Philosophy & Arch</span>
-              <h3 className="font-display text-2xl lg:text-3xl font-extrabold text-white mt-2 leading-tight">Rugged Hardware Meets Compliance</h3>
-              <p className="text-gray-400 text-sm mt-4 leading-relaxed">
+              <h3 className="font-display text-2xl font-extrabold text-white mt-2 leading-tight">Rugged Hardware Meets Compliance</h3>
+              <p className="text-gray-400 text-xs mt-3 leading-relaxed">
                 As Head of IT and Data Protection Officer at Avega Bros Integrated Shipping Corp., my focus is building resilient software environments that stand up to rough environments—whether that is a shipping vessel at sea or a strict ISO compliance audit.
               </p>
             </div>
-            <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3">
-              <div className="text-cyan-400 text-lg"><i className="fas fa-cloud-sun"></i></div>
+
+            {/* Pillar 1: On-Premises Isolation */}
+            <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3 hover:border-cyan-500/30 transition-colors">
+              <div className="text-cyan-400 text-lg"><i className="fas fa-server"></i></div>
               <h4 className="font-bold text-white text-sm">On-Premises Isolation</h4>
               <p className="text-gray-400 text-xs leading-relaxed">
                 Cloud services fail when internet links drop. All primary solutions are engineered to be self-sufficient and dockerized within local intranet servers.
               </p>
             </div>
-            <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3">
+
+            {/* Pillar 2: Secured Audit Ledgers */}
+            <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3 hover:border-emerald-500/30 transition-colors">
               <div className="text-emerald-400 text-lg"><i className="fas fa-fingerprint"></i></div>
-              <h4 className="font-bold text-white text-sm">Secured Audit ledgers</h4>
+              <h4 className="font-bold text-white text-sm">Secured Audit Ledgers</h4>
               <p className="text-gray-400 text-xs leading-relaxed">
-                Using blockchain-inspired chained row hashes (SHA-256) ensures absolute ledger compliance, perfect for corporate tax reconciliations or inventory asset verification.
+                Using chained row hashes (SHA-256) ensures absolute ledger compliance, perfect for corporate tax reconciliations or inventory asset verification.
+              </p>
+            </div>
+
+            {/* Pillar 3: Edge IoT & Remote Telemetry */}
+            <div className="p-6 rounded-2xl bg-gray-950/30 border border-gray-900 space-y-3 hover:border-amber-500/30 transition-colors">
+              <div className="text-amber-400 text-lg"><i className="fas fa-tower-cell"></i></div>
+              <h4 className="font-bold text-white text-sm">Edge IoT & Telemetry</h4>
+              <p className="text-gray-400 text-xs leading-relaxed">
+                Integrating local hardware sensors (RS485/Modbus/RFID) with cellular and satellite gateways like Cellular Bridge for low-latency remote monitoring.
               </p>
             </div>
           </div>
