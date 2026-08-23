@@ -201,12 +201,23 @@ export default function Home() {
                         <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
                       ))}
                     </div>
-                    <button
-                      onClick={() => openInquiry("T.R.A.C.E.")}
-                      className="w-full py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 font-semibold text-xs tracking-wider uppercase border border-cyan-500/30 cursor-pointer transition-colors"
-                    >
-                      Get License Quote
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://trace.sanchez.ph"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs tracking-wider uppercase text-center transition-colors"
+                      >
+                        Live Demo
+                      </a>
+                      <button
+                        onClick={() => openInquiry("T.R.A.C.E.")}
+                        className="p-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 text-xs border border-cyan-500/30 cursor-pointer transition-colors"
+                        title="Get License Quote"
+                      >
+                        <i className="fas fa-file-invoice-dollar"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -231,12 +242,23 @@ export default function Home() {
                         <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
                       ))}
                     </div>
-                    <button
-                      onClick={() => openInquiry("EquiYield")}
-                      className="w-full py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-semibold text-xs tracking-wider uppercase border border-emerald-500/30 cursor-pointer transition-colors"
-                    >
-                      Get License Quote
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://equiyield.sanchez.ph"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs tracking-wider uppercase text-center transition-colors"
+                      >
+                        Live Demo
+                      </a>
+                      <button
+                        onClick={() => openInquiry("EquiYield")}
+                        className="p-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 text-xs border border-emerald-500/30 cursor-pointer transition-colors"
+                        title="Get License Quote"
+                      >
+                        <i className="fas fa-file-invoice-dollar"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -261,12 +283,23 @@ export default function Home() {
                         <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
                       ))}
                     </div>
-                    <button
-                      onClick={() => openInquiry("CCARD Studio")}
-                      className="w-full py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-semibold text-xs tracking-wider uppercase border border-amber-500/30 cursor-pointer transition-colors"
-                    >
-                      Get License Quote
-                    </button>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://ccard.sanchez.ph"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-wider uppercase text-center transition-colors"
+                      >
+                        Live Demo
+                      </a>
+                      <button
+                        onClick={() => openInquiry("CCARD Studio")}
+                        className="p-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-xs border border-amber-500/30 cursor-pointer transition-colors"
+                        title="Get License Quote"
+                      >
+                        <i className="fas fa-file-invoice-dollar"></i>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -287,6 +320,7 @@ export default function Home() {
                   features={traceFeatures}
                   status="released"
                   logoUrl="/trace-logo.png"
+                  demoUrl="https://trace.sanchez.ph"
                   githubUrl="https://github.com/tildemark/trace"
                   accentColor="cyan"
                   onInquiry={openInquiry}
@@ -353,6 +387,7 @@ export default function Home() {
                   ]}
                   status="released"
                   logoUrl="/ccard-logo.png"
+                  demoUrl="https://ccard.sanchez.ph"
                   githubUrl="https://github.com/tildemark/ccard-studio"
                   accentColor="amber"
                   onInquiry={openInquiry}
