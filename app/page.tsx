@@ -78,6 +78,7 @@ export default function Home() {
   ];
 
   const [activeCategory, setActiveCategory] = useState<string>("all");
+  const [viewMode, setViewMode] = useState<"expanded" | "grid">("expanded");
 
   const categoryOptions = [
     { id: "all", label: "All Products" },
@@ -126,112 +127,239 @@ export default function Home() {
       {/* Main Showcase */}
       <main id="products" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-16">
         
-        {/* Category Filter Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 pb-4 border-b border-gray-900">
-          {categoryOptions.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border ${
-                activeCategory === cat.id
-                  ? "bg-cyan-500/15 text-cyan-300 border-cyan-500/40 shadow-sm shadow-cyan-500/10"
-                  : "bg-gray-950/40 text-gray-400 border-gray-800 hover:border-gray-700 hover:text-white"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+        {/* Category & View Mode Controls */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-4 border-b border-gray-900">
+          <div className="flex flex-wrap items-center gap-2.5">
+            {categoryOptions.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-4 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border ${
+                  activeCategory === cat.id
+                    ? "bg-cyan-500/15 text-cyan-300 border-cyan-500/40 shadow-sm shadow-cyan-500/10"
+                    : "bg-gray-950/40 text-gray-400 border-gray-800 hover:border-gray-700 hover:text-white"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+
+          {(activeCategory === "all" || activeCategory === "released") && (
+            <div className="flex items-center gap-1 rounded-xl bg-gray-950/60 p-1 border border-gray-800 text-xs">
+              <button
+                onClick={() => setViewMode("expanded")}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-[11px] font-semibold tracking-wider transition-colors cursor-pointer ${
+                  viewMode === "expanded" ? "bg-gray-800 text-white" : "text-gray-400 hover:text-gray-200"
+                }`}
+                title="Full Feature Breakdown"
+              >
+                <i className="fas fa-bars-staggered"></i>
+                Detailed
+              </button>
+              <button
+                onClick={() => setViewMode("grid")}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-[11px] font-semibold tracking-wider transition-colors cursor-pointer ${
+                  viewMode === "grid" ? "bg-gray-800 text-white" : "text-gray-400 hover:text-gray-200"
+                }`}
+                title="Compact Grid Matrix"
+              >
+                <i className="fas fa-table-cells-large"></i>
+                Compact Grid
+              </button>
+            </div>
+          )}
         </div>
         
         {/* Production Released Products */}
         {(activeCategory === "all" || activeCategory === "released") && (
-          <>
-            {/* Trace Section */}
+          viewMode === "grid" ? (
             <div>
               <div className="mb-6">
-                <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest font-mono">01 // Hospitality Asset Infrastructure</span>
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest font-mono">Production Releases Matrix</span>
                 <div className="h-0.5 w-12 bg-cyan-500 mt-1"></div>
               </div>
-              <ProductCard
-                title="T.R.A.C.E."
-                subtitle="Total Resource Asset & Compliance Engine"
-                description="An enterprise-grade, on-premises asset management ecosystem designed for high-luxury, multi-acre resort environments (e.g., Shangri-La Boracay). It modernizes passive inventory registries into proactive physical operation layers."
-                tags={["Next.js", "Flutter", "SQLite", "PostgreSQL", "Redis", "Docker", "RFID / QR"]}
-                features={traceFeatures}
-                status="released"
-                logoUrl="/trace-logo.png"
-                githubUrl="https://github.com/tildemark/trace"
-                accentColor="cyan"
-                onInquiry={openInquiry}
-              />
-            </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {/* TRACE Compact */}
+                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/45 p-6 flex flex-col justify-between hover:border-cyan-500/40 transition-all backdrop-blur-sm">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img src="/trace-logo.png" alt="TRACE" className="h-7 w-7 object-contain rounded bg-gray-900 p-0.5 border border-gray-800" />
+                        <h4 className="font-display font-extrabold text-lg text-white">T.R.A.C.E.</h4>
+                      </div>
+                      <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
+                    </div>
+                    <p className="text-[10px] text-cyan-400 font-semibold font-mono uppercase tracking-wider mb-2">Hospitality Asset Engine</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                      On-premises asset management ecosystem with RFID/QR sweeps and cryptographic SHA-256 audit ledgers.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {["Next.js", "Flutter", "SQLite", "Docker"].map((t) => (
+                        <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => openInquiry("T.R.A.C.E.")}
+                      className="w-full py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 font-semibold text-xs tracking-wider uppercase border border-cyan-500/30 cursor-pointer transition-colors"
+                    >
+                      Get License Quote
+                    </button>
+                  </div>
+                </div>
 
-            {/* EquiYield Section */}
-            <div>
-              <div className="mb-6">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono">02 // Cooperative Savings & Ledger Suite</span>
-                <div className="h-0.5 w-12 bg-emerald-500 mt-1"></div>
-              </div>
-              <ProductCard
-                title="EquiYield"
-                subtitle="Cooperative Savings and Loan Management Platform"
-                description="A robust full-stack solution for credit unions and cooperative networks. Handles member profiles, contribution ledgers, dividend allocation cycles, and automated payouts with comprehensive administrative tracking."
-                tags={["Next.js 15", "Express.js", "Prisma ORM", "PostgreSQL", "Redis", "Tailwind CSS"]}
-                features={equiyieldFeatures}
-                status="released"
-                logoUrl="/equiyield-logo.png"
-                demoUrl="https://equiyield.sanchez.ph"
-                githubUrl="https://github.com/tildemark/EquiYield"
-                accentColor="emerald"
-                onInquiry={openInquiry}
-                credentials={{
-                  admin: "admin@equiyield.local / Admin@123456",
-                  members: "juan.delacruz@demo.com / Member@123"
-                }}
-              />
-            </div>
+                {/* EquiYield Compact */}
+                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/45 p-6 flex flex-col justify-between hover:border-emerald-500/40 transition-all backdrop-blur-sm">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img src="/equiyield-logo.png" alt="EquiYield" className="h-7 w-7 object-contain rounded bg-gray-900 p-0.5 border border-gray-800" />
+                        <h4 className="font-display font-extrabold text-lg text-white">EquiYield</h4>
+                      </div>
+                      <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
+                    </div>
+                    <p className="text-[10px] text-emerald-400 font-semibold font-mono uppercase tracking-wider mb-2">Cooperative Savings Suite</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                      Savings, loan tracking, pro-rata dividend calculation algorithms, and corporate payout integrations.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {["Next.js 15", "Prisma", "PostgreSQL", "Redis"].map((t) => (
+                        <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => openInquiry("EquiYield")}
+                      className="w-full py-2 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 font-semibold text-xs tracking-wider uppercase border border-emerald-500/30 cursor-pointer transition-colors"
+                    >
+                      Get License Quote
+                    </button>
+                  </div>
+                </div>
 
-            {/* CCARD Studio Section */}
-            <div>
-              <div className="mb-6">
-                <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">03 // Custom Card & Badge Design Studio</span>
-                <div className="h-0.5 w-12 bg-amber-500 mt-1"></div>
+                {/* CCARD Studio Compact */}
+                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/45 p-6 flex flex-col justify-between hover:border-amber-500/40 transition-all backdrop-blur-sm">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img src="/ccard-logo.png" alt="CCARD Studio" className="h-7 w-7 object-contain rounded bg-gray-900 p-0.5 border border-gray-800" />
+                        <h4 className="font-display font-extrabold text-lg text-white">CCARD Studio</h4>
+                      </div>
+                      <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
+                    </div>
+                    <p className="text-[10px] text-amber-400 font-semibold font-mono uppercase tracking-wider mb-2">Smart Badge Design Studio</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                      Drag-and-drop vector card editor with dynamic CSV batch printing and smart RFID tag encoding.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {["Next.js", "Canvas API", "Tailwind", "RFID/NFC"].map((t) => (
+                        <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <button
+                      onClick={() => openInquiry("CCARD Studio")}
+                      className="w-full py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 font-semibold text-xs tracking-wider uppercase border border-amber-500/30 cursor-pointer transition-colors"
+                    >
+                      Get License Quote
+                    </button>
+                  </div>
+                </div>
               </div>
-              <ProductCard
-                title="CCARD Studio"
-                subtitle="Smart Card & Identification Design Platform"
-                description="A comprehensive web design suite and issuance platform built for custom ID badging, RFID access smart cards, and corporate asset tags with dynamic template rendering and print automation."
-                tags={["Next.js", "TypeScript", "Canvas API", "Tailwind CSS", "SVG Export", "RFID/NFC"]}
-                features={[
-                  {
-                    title: "Visual Card Editor",
-                    desc: "Drag-and-drop vector layout engine for custom ID badges, membership cards, and asset tags.",
-                    icon: "fas fa-id-card",
-                  },
-                  {
-                    title: "Dynamic Data Binding & Batch Print",
-                    desc: "Import CSV/JSON data sources to instantly batch generate and export high-resolution print-ready cards.",
-                    icon: "fas fa-print",
-                  },
-                  {
-                    title: "Smart Card Encoding Suite",
-                    desc: "Integrate RFID, NFC data structures, and dynamic 2D barcodes into badge templates for hardware scanners.",
-                    icon: "fas fa-microchip",
-                  },
-                  {
-                    title: "Role-Based Issuance Control",
-                    desc: "Audit logs and approval workflows ensuring secure printing and anti-duplication enforcement.",
-                    icon: "fas fa-user-shield",
-                  },
-                ]}
-                status="released"
-                logoUrl="/ccard-logo.png"
-                githubUrl="https://github.com/tildemark/ccard-studio"
-                accentColor="amber"
-                onInquiry={openInquiry}
-              />
             </div>
-          </>
+          ) : (
+            <>
+              {/* Trace Section */}
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest font-mono">01 // Hospitality Asset Infrastructure</span>
+                  <div className="h-0.5 w-12 bg-cyan-500 mt-1"></div>
+                </div>
+                <ProductCard
+                  title="T.R.A.C.E."
+                  subtitle="Total Resource Asset & Compliance Engine"
+                  description="An enterprise-grade, on-premises asset management ecosystem designed for high-luxury, multi-acre resort environments (e.g., Shangri-La Boracay). It modernizes passive inventory registries into proactive physical operation layers."
+                  tags={["Next.js", "Flutter", "SQLite", "PostgreSQL", "Redis", "Docker", "RFID / QR"]}
+                  features={traceFeatures}
+                  status="released"
+                  logoUrl="/trace-logo.png"
+                  githubUrl="https://github.com/tildemark/trace"
+                  accentColor="cyan"
+                  onInquiry={openInquiry}
+                />
+              </div>
+
+              {/* EquiYield Section */}
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono">02 // Cooperative Savings & Ledger Suite</span>
+                  <div className="h-0.5 w-12 bg-emerald-500 mt-1"></div>
+                </div>
+                <ProductCard
+                  title="EquiYield"
+                  subtitle="Cooperative Savings and Loan Management Platform"
+                  description="A robust full-stack solution for credit unions and cooperative networks. Handles member profiles, contribution ledgers, dividend allocation cycles, and automated payouts with comprehensive administrative tracking."
+                  tags={["Next.js 15", "Express.js", "Prisma ORM", "PostgreSQL", "Redis", "Tailwind CSS"]}
+                  features={equiyieldFeatures}
+                  status="released"
+                  logoUrl="/equiyield-logo.png"
+                  demoUrl="https://equiyield.sanchez.ph"
+                  githubUrl="https://github.com/tildemark/EquiYield"
+                  accentColor="emerald"
+                  onInquiry={openInquiry}
+                  credentials={{
+                    admin: "admin@equiyield.local / Admin@123456",
+                    members: "juan.delacruz@demo.com / Member@123"
+                  }}
+                />
+              </div>
+
+              {/* CCARD Studio Section */}
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">03 // Custom Card & Badge Design Studio</span>
+                  <div className="h-0.5 w-12 bg-amber-500 mt-1"></div>
+                </div>
+                <ProductCard
+                  title="CCARD Studio"
+                  subtitle="Smart Card & Identification Design Platform"
+                  description="A comprehensive web design suite and issuance platform built for custom ID badging, RFID access smart cards, and corporate asset tags with dynamic template rendering and print automation."
+                  tags={["Next.js", "TypeScript", "Canvas API", "Tailwind CSS", "SVG Export", "RFID/NFC"]}
+                  features={[
+                    {
+                      title: "Visual Card Editor",
+                      desc: "Drag-and-drop vector layout engine for custom ID badges, membership cards, and asset tags.",
+                      icon: "fas fa-id-card",
+                    },
+                    {
+                      title: "Dynamic Data Binding & Batch Print",
+                      desc: "Import CSV/JSON data sources to instantly batch generate and export high-resolution print-ready cards.",
+                      icon: "fas fa-print",
+                    },
+                    {
+                      title: "Smart Card Encoding Suite",
+                      desc: "Integrate RFID, NFC data structures, and dynamic 2D barcodes into badge templates for hardware scanners.",
+                      icon: "fas fa-microchip",
+                    },
+                    {
+                      title: "Role-Based Issuance Control",
+                      desc: "Audit logs and approval workflows ensuring secure printing and anti-duplication enforcement.",
+                      icon: "fas fa-user-shield",
+                    },
+                  ]}
+                  status="released"
+                  logoUrl="/ccard-logo.png"
+                  githubUrl="https://github.com/tildemark/ccard-studio"
+                  accentColor="amber"
+                  onInquiry={openInquiry}
+                />
+              </div>
+            </>
+          )
         )}
 
         {/* Active Development Pipelines */}
