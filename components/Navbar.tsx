@@ -21,8 +21,8 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
               S
             </div>
             <div>
-              <span className="font-display font-bold text-white text-lg tracking-tight block">SANCHEZ</span>
-              <span className="text-[10px] uppercase font-semibold text-cyan-400 tracking-widest block -mt-1">Solutions</span>
+              <span className="font-display font-bold text-white text-lg tracking-tight block">SANCHEZ.PH</span>
+              <span className="text-[10px] uppercase font-semibold text-cyan-400 tracking-widest block -mt-1">Software Architecture</span>
             </div>
           </div>
 
