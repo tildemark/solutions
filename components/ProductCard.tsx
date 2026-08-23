@@ -18,7 +18,7 @@ interface ProductCardProps {
   demoUrl?: string;
   githubUrl?: string;
   downloadUrl?: string;
-  accentColor: "cyan" | "emerald" | "indigo";
+  accentColor: "cyan" | "emerald" | "indigo" | "amber";
   onInquiry: (productName: string) => void;
   credentials?: {
     admin?: string;
@@ -63,6 +63,13 @@ export default function ProductCard({
       accent: "text-indigo-400",
       btn: "bg-indigo-500 hover:bg-indigo-400 text-white",
     },
+    amber: {
+      border: "hover:border-amber-500/40",
+      glow: "glow-hover-amber",
+      badge: "bg-amber-500/10 text-amber-300 border-amber-500/20",
+      accent: "text-amber-400",
+      btn: "bg-amber-500 hover:bg-amber-400 text-slate-950",
+    },
   };
 
   const currentStyles = colorMap[accentColor] || colorMap.cyan;
@@ -70,7 +77,7 @@ export default function ProductCard({
   return (
     <div className={`group relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/45 p-6 sm:p-8 transition-all duration-300 backdrop-blur-sm ${currentStyles.border} ${currentStyles.glow}`}>
       {/* Glow Effect */}
-      <div className={`absolute -right-20 -top-20 h-40 w-40 rounded-full blur-3xl opacity-10 transition-opacity group-hover:opacity-20 pointer-events-none`} style={{ backgroundColor: accentColor === "cyan" ? "#06b6d4" : accentColor === "emerald" ? "#10b981" : "#6366f1" }} />
+      <div className={`absolute -right-20 -top-20 h-40 w-40 rounded-full blur-3xl opacity-10 transition-opacity group-hover:opacity-20 pointer-events-none`} style={{ backgroundColor: accentColor === "cyan" ? "#06b6d4" : accentColor === "emerald" ? "#10b981" : accentColor === "amber" ? "#f59e0b" : "#6366f1" }} />
 
       <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-6">
         <div>

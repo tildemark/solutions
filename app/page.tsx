@@ -161,10 +161,50 @@ export default function Home() {
           />
         </div>
 
+        {/* CCARD Studio Section */}
+        <div>
+          <div className="mb-6">
+            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">03 // Custom Card & Badge Design Studio</span>
+            <div className="h-0.5 w-12 bg-amber-500 mt-1"></div>
+          </div>
+          <ProductCard
+            title="CCARD Studio"
+            subtitle="Smart Card & Identification Design Platform"
+            description="A comprehensive web design suite and issuance platform built for custom ID badging, RFID access smart cards, and corporate asset tags with dynamic template rendering and print automation."
+            tags={["Next.js", "TypeScript", "Canvas API", "Tailwind CSS", "SVG Export", "RFID/NFC"]}
+            features={[
+              {
+                title: "Visual Card Editor",
+                desc: "Drag-and-drop vector layout engine for custom ID badges, membership cards, and asset tags.",
+                icon: "fas fa-id-card",
+              },
+              {
+                title: "Dynamic Data Binding & Batch Print",
+                desc: "Import CSV/JSON data sources to instantly batch generate and export high-resolution print-ready cards.",
+                icon: "fas fa-print",
+              },
+              {
+                title: "Smart Card Encoding Suite",
+                desc: "Integrate RFID, NFC data structures, and dynamic 2D barcodes into badge templates for hardware scanners.",
+                icon: "fas fa-microchip",
+              },
+              {
+                title: "Role-Based Issuance Control",
+                desc: "Audit logs and approval workflows ensuring secure printing and anti-duplication enforcement.",
+                icon: "fas fa-user-shield",
+              },
+            ]}
+            status="released"
+            githubUrl="https://github.com/tildemark/ccard-studio"
+            accentColor="amber"
+            onInquiry={openInquiry}
+          />
+        </div>
+
         {/* Coming Soon Pipelines */}
         <div>
           <div className="mb-8">
-            <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">03 // Active Development Pipelines</span>
+            <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">04 // Active Development Pipelines</span>
             <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
           </div>
 
