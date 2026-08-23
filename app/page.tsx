@@ -179,6 +179,7 @@ export default function Home() {
                 tags={["Next.js 15", "Express.js", "Prisma ORM", "PostgreSQL", "Redis", "Tailwind CSS"]}
                 features={equiyieldFeatures}
                 status="released"
+                logoUrl="/equiyield-logo.png"
                 demoUrl="https://equiyield.sanchez.ph"
                 githubUrl="https://github.com/tildemark/EquiYield"
                 accentColor="emerald"
