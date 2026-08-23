@@ -77,6 +77,14 @@ export default function Home() {
     },
   ];
 
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+
+  const categoryOptions = [
+    { id: "all", label: "All Products" },
+    { id: "released", label: "Production Releases" },
+    { id: "wip", label: "Active Pipelines (WIP)" },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-[#030712]">
       {/* Sticky Navigation */}
@@ -118,182 +126,206 @@ export default function Home() {
       {/* Main Showcase */}
       <main id="products" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 space-y-16">
         
-        {/* Trace Section */}
-        <div>
-          <div className="mb-6">
-            <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest font-mono">01 // Hospitality Asset Infrastructure</span>
-            <div className="h-0.5 w-12 bg-cyan-500 mt-1"></div>
-          </div>
-          <ProductCard
-            title="T.R.A.C.E."
-            subtitle="Total Resource Asset & Compliance Engine"
-            description="An enterprise-grade, on-premises asset management ecosystem designed for high-luxury, multi-acre resort environments (e.g., Shangri-La Boracay). It modernizes passive inventory registries into proactive physical operation layers."
-            tags={["Next.js", "Flutter", "SQLite", "PostgreSQL", "Redis", "Docker", "RFID / QR"]}
-            features={traceFeatures}
-            status="released"
-            githubUrl="https://github.com/tildemark/trace"
-            accentColor="cyan"
-            onInquiry={openInquiry}
-          />
+        {/* Category Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2.5 pb-4 border-b border-gray-900">
+          {categoryOptions.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActiveCategory(cat.id)}
+              className={`px-5 py-2 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all cursor-pointer border ${
+                activeCategory === cat.id
+                  ? "bg-cyan-500/15 text-cyan-300 border-cyan-500/40 shadow-sm shadow-cyan-500/10"
+                  : "bg-gray-950/40 text-gray-400 border-gray-800 hover:border-gray-700 hover:text-white"
+              }`}
+            >
+              {cat.label}
+            </button>
+          ))}
         </div>
-
-        {/* EquiYield Section */}
-        <div>
-          <div className="mb-6">
-            <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono">02 // Cooperative Savings & Ledger Suite</span>
-            <div className="h-0.5 w-12 bg-emerald-500 mt-1"></div>
-          </div>
-          <ProductCard
-            title="EquiYield"
-            subtitle="Cooperative Savings and Loan Management Platform"
-            description="A robust full-stack solution for credit unions and cooperative networks. Handles member profiles, contribution ledgers, dividend allocation cycles, and automated payouts with comprehensive administrative tracking."
-            tags={["Next.js 15", "Express.js", "Prisma ORM", "PostgreSQL", "Redis", "Tailwind CSS"]}
-            features={equiyieldFeatures}
-            status="released"
-            demoUrl="https://equiyield.sanchez.ph"
-            githubUrl="https://github.com/tildemark/EquiYield"
-            accentColor="emerald"
-            onInquiry={openInquiry}
-            credentials={{
-              admin: "admin@equiyield.local / Admin@123456",
-              members: "juan.delacruz@demo.com / Member@123"
-            }}
-          />
-        </div>
-
-        {/* CCARD Studio Section */}
-        <div>
-          <div className="mb-6">
-            <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">03 // Custom Card & Badge Design Studio</span>
-            <div className="h-0.5 w-12 bg-amber-500 mt-1"></div>
-          </div>
-          <ProductCard
-            title="CCARD Studio"
-            subtitle="Smart Card & Identification Design Platform"
-            description="A comprehensive web design suite and issuance platform built for custom ID badging, RFID access smart cards, and corporate asset tags with dynamic template rendering and print automation."
-            tags={["Next.js", "TypeScript", "Canvas API", "Tailwind CSS", "SVG Export", "RFID/NFC"]}
-            features={[
-              {
-                title: "Visual Card Editor",
-                desc: "Drag-and-drop vector layout engine for custom ID badges, membership cards, and asset tags.",
-                icon: "fas fa-id-card",
-              },
-              {
-                title: "Dynamic Data Binding & Batch Print",
-                desc: "Import CSV/JSON data sources to instantly batch generate and export high-resolution print-ready cards.",
-                icon: "fas fa-print",
-              },
-              {
-                title: "Smart Card Encoding Suite",
-                desc: "Integrate RFID, NFC data structures, and dynamic 2D barcodes into badge templates for hardware scanners.",
-                icon: "fas fa-microchip",
-              },
-              {
-                title: "Role-Based Issuance Control",
-                desc: "Audit logs and approval workflows ensuring secure printing and anti-duplication enforcement.",
-                icon: "fas fa-user-shield",
-              },
-            ]}
-            status="released"
-            githubUrl="https://github.com/tildemark/ccard-studio"
-            accentColor="amber"
-            onInquiry={openInquiry}
-          />
-        </div>
-
-        {/* Coming Soon Pipelines */}
-        <div>
-          <div className="mb-8">
-            <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">04 // Active Development Pipelines</span>
-            <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Tanod */}
-            <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
-                  <div className="text-gray-500 text-base"><i className="fas fa-shield-halved"></i></div>
-                </div>
-                <h4 className="font-display font-extrabold text-lg text-white mb-1">TANOD</h4>
-                <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">DPO Compliance Suite</p>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Data Protection Officer (DPO) workspace designed for Philippine National Privacy Commission (NPC) compliance, featuring AI-powered risk assessment matrices.
-                </p>
+        
+        {/* Production Released Products */}
+        {(activeCategory === "all" || activeCategory === "released") && (
+          <>
+            {/* Trace Section */}
+            <div>
+              <div className="mb-6">
+                <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest font-mono">01 // Hospitality Asset Infrastructure</span>
+                <div className="h-0.5 w-12 bg-cyan-500 mt-1"></div>
               </div>
-              <button
-                onClick={() => openInquiry("Tanod")}
-                className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
-              >
-                Join Waitlist
-              </button>
+              <ProductCard
+                title="T.R.A.C.E."
+                subtitle="Total Resource Asset & Compliance Engine"
+                description="An enterprise-grade, on-premises asset management ecosystem designed for high-luxury, multi-acre resort environments (e.g., Shangri-La Boracay). It modernizes passive inventory registries into proactive physical operation layers."
+                tags={["Next.js", "Flutter", "SQLite", "PostgreSQL", "Redis", "Docker", "RFID / QR"]}
+                features={traceFeatures}
+                status="released"
+                githubUrl="https://github.com/tildemark/trace"
+                accentColor="cyan"
+                onInquiry={openInquiry}
+              />
             </div>
 
-            {/* Tala */}
-            <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
-                  <div className="text-gray-500 text-base"><i className="fas fa-file-invoice"></i></div>
-                </div>
-                <h4 className="font-display font-extrabold text-lg text-white mb-1">TALA</h4>
-                <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">BIR Tax & Ledger Assistant</p>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Compliance accountant tool targeting BIR bookkeeping regulations. Streamlines journal ledgers, sales reporting, and tax allocation files.
-                </p>
+            {/* EquiYield Section */}
+            <div>
+              <div className="mb-6">
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest font-mono">02 // Cooperative Savings & Ledger Suite</span>
+                <div className="h-0.5 w-12 bg-emerald-500 mt-1"></div>
               </div>
-              <button
-                onClick={() => openInquiry("Tala")}
-                className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
-              >
-                Join Waitlist
-              </button>
+              <ProductCard
+                title="EquiYield"
+                subtitle="Cooperative Savings and Loan Management Platform"
+                description="A robust full-stack solution for credit unions and cooperative networks. Handles member profiles, contribution ledgers, dividend allocation cycles, and automated payouts with comprehensive administrative tracking."
+                tags={["Next.js 15", "Express.js", "Prisma ORM", "PostgreSQL", "Redis", "Tailwind CSS"]}
+                features={equiyieldFeatures}
+                status="released"
+                demoUrl="https://equiyield.sanchez.ph"
+                githubUrl="https://github.com/tildemark/EquiYield"
+                accentColor="emerald"
+                onInquiry={openInquiry}
+                credentials={{
+                  admin: "admin@equiyield.local / Admin@123456",
+                  members: "juan.delacruz@demo.com / Member@123"
+                }}
+              />
             </div>
 
-            {/* Apex Smile */}
-            <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
-                  <div className="text-gray-500 text-base"><i className="fas fa-tooth"></i></div>
-                </div>
-                <h4 className="font-display font-extrabold text-lg text-white mb-1">APEX SMILE</h4>
-                <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Dentist Booking Platform</p>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Clinical management and patient appointment system for modern dental clinics, integrating automated calendar scheduling and treatment histories.
-                </p>
+            {/* CCARD Studio Section */}
+            <div>
+              <div className="mb-6">
+                <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">03 // Custom Card & Badge Design Studio</span>
+                <div className="h-0.5 w-12 bg-amber-500 mt-1"></div>
               </div>
-              <button
-                onClick={() => openInquiry("Apex Smile")}
-                className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
-              >
-                Join Waitlist
-              </button>
+              <ProductCard
+                title="CCARD Studio"
+                subtitle="Smart Card & Identification Design Platform"
+                description="A comprehensive web design suite and issuance platform built for custom ID badging, RFID access smart cards, and corporate asset tags with dynamic template rendering and print automation."
+                tags={["Next.js", "TypeScript", "Canvas API", "Tailwind CSS", "SVG Export", "RFID/NFC"]}
+                features={[
+                  {
+                    title: "Visual Card Editor",
+                    desc: "Drag-and-drop vector layout engine for custom ID badges, membership cards, and asset tags.",
+                    icon: "fas fa-id-card",
+                  },
+                  {
+                    title: "Dynamic Data Binding & Batch Print",
+                    desc: "Import CSV/JSON data sources to instantly batch generate and export high-resolution print-ready cards.",
+                    icon: "fas fa-print",
+                  },
+                  {
+                    title: "Smart Card Encoding Suite",
+                    desc: "Integrate RFID, NFC data structures, and dynamic 2D barcodes into badge templates for hardware scanners.",
+                    icon: "fas fa-microchip",
+                  },
+                  {
+                    title: "Role-Based Issuance Control",
+                    desc: "Audit logs and approval workflows ensuring secure printing and anti-duplication enforcement.",
+                    icon: "fas fa-user-shield",
+                  },
+                ]}
+                status="released"
+                githubUrl="https://github.com/tildemark/ccard-studio"
+                accentColor="amber"
+                onInquiry={openInquiry}
+              />
+            </div>
+          </>
+        )}
+
+        {/* Active Development Pipelines */}
+        {(activeCategory === "all" || activeCategory === "wip") && (
+          <div>
+            <div className="mb-8">
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">04 // Active Development Pipelines</span>
+              <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
             </div>
 
-            {/* Beacon */}
-            <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
-                  <div className="text-gray-500 text-base"><i className="fas fa-ship"></i></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {/* Tanod */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-shield-halved"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">TANOD</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">DPO Compliance Suite</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Data Protection Officer (DPO) workspace designed for Philippine National Privacy Commission (NPC) compliance, featuring AI-powered risk assessment matrices.
+                  </p>
                 </div>
-                <h4 className="font-display font-extrabold text-lg text-white mb-1">BEACON</h4>
-                <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Maritime Attendance Engine</p>
-                <p className="text-gray-400 text-xs leading-relaxed">
-                  Biometric employee attendance sync engine built to connect ocean fleet networks with shore-based head offices under limited satellite links.
-                </p>
+                <button
+                  onClick={() => openInquiry("Tanod")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
               </div>
-              <button
-                onClick={() => openInquiry("Beacon")}
-                className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
-              >
-                Join Waitlist
-              </button>
+
+              {/* Tala */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-file-invoice"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">TALA</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">BIR Tax & Ledger Assistant</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Compliance accountant tool targeting BIR bookkeeping regulations. Streamlines journal ledgers, sales reporting, and tax allocation files.
+                  </p>
+                </div>
+                <button
+                  onClick={() => openInquiry("Tala")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </div>
+
+              {/* Apex Smile */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-tooth"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">APEX SMILE</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Dentist Booking Platform</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Clinical management and patient appointment system for modern dental clinics, integrating automated calendar scheduling and treatment histories.
+                  </p>
+                </div>
+                <button
+                  onClick={() => openInquiry("Apex Smile")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </div>
+
+              {/* Beacon */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-ship"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">BEACON</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Maritime Attendance Engine</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Biometric employee attendance sync engine built to connect ocean fleet networks with shore-based head offices under limited satellite links.
+                  </p>
+                </div>
+                <button
+                  onClick={() => openInquiry("Beacon")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Philosophy Section */}
         <section id="philosophy" className="py-8 border-t border-gray-900">
