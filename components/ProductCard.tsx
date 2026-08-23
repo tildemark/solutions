@@ -15,6 +15,7 @@ interface ProductCardProps {
   tags: string[];
   features: FeatureItem[];
   status: "released" | "wip";
+  logoUrl?: string;
   demoUrl?: string;
   githubUrl?: string;
   downloadUrl?: string;
@@ -33,6 +34,7 @@ export default function ProductCard({
   tags,
   features,
   status,
+  logoUrl,
   demoUrl,
   githubUrl,
   downloadUrl,
@@ -81,8 +83,15 @@ export default function ProductCard({
 
       <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-6 mb-6">
         <div>
-          {/* Status and Title */}
+          {/* Status, Logo and Title */}
           <div className="flex items-center gap-3 flex-wrap mb-2">
+            {logoUrl && (
+              <img
+                src={logoUrl}
+                alt={`${title} Logo`}
+                className="h-9 w-9 object-contain rounded-lg bg-gray-900/80 p-1 border border-gray-800"
+              />
+            )}
             <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white tracking-tight">{title}</h3>
             <span className={`px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider rounded-full border ${status === "released" ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/20" : "bg-yellow-500/10 text-yellow-400 border-yellow-500/20"}`}>
               {status === "released" ? "Production Ready" : "Under Dev"}

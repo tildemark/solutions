@@ -159,6 +159,7 @@ export default function Home() {
                 tags={["Next.js", "Flutter", "SQLite", "PostgreSQL", "Redis", "Docker", "RFID / QR"]}
                 features={traceFeatures}
                 status="released"
+                logoUrl="/trace-logo.png"
                 githubUrl="https://github.com/tildemark/trace"
                 accentColor="cyan"
                 onInquiry={openInquiry}
