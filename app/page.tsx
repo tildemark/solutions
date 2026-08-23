@@ -225,6 +225,7 @@ export default function Home() {
                   },
                 ]}
                 status="released"
+                logoUrl="/ccard-logo.png"
                 githubUrl="https://github.com/tildemark/ccard-studio"
                 accentColor="amber"
                 onInquiry={openInquiry}
