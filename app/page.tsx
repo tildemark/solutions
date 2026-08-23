@@ -326,6 +326,90 @@ export default function Home() {
                   Join Waitlist
                 </button>
               </div>
+
+              {/* Cellular Bridge */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-tower-cell"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">CELLULAR BRIDGE</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Remote Telemetry & Gateway</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Edge computing telemetry gateway for remote sites and vessels, bridging local RS485/Modbus sensor data over resilient cellular and satellite links.
+                  </p>
+                </div>
+                <button
+                  onClick={() => openInquiry("Cellular Bridge")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </div>
+
+              {/* Susi */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-key"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">SUSI</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Key & Access Locker Suite</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Smart physical key management and digital credential locker for facility managers, auditing access logs and hardware checkout protocols.
+                  </p>
+                </div>
+                <button
+                  onClick={() => openInquiry("Susi")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </div>
+
+              {/* MLBB Forge */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-gamepad"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">MLBB FORGE</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Esports Analytics & Draft Builder</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Competitive esports analytical companion offering real-time draft recommendations, hero counter synergies, and performance telemetry tracking.
+                  </p>
+                </div>
+                <button
+                  onClick={() => openInquiry("MLBB Forge")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </div>
+
+              {/* SolarCalc */}
+              <div className="relative overflow-hidden rounded-2xl border border-gray-800/80 bg-gray-950/25 p-6 flex flex-col justify-between hover:border-indigo-500/20 transition-all">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">WIP</span>
+                    <div className="text-gray-500 text-base"><i className="fas fa-solar-panel"></i></div>
+                  </div>
+                  <h4 className="font-display font-extrabold text-lg text-white mb-1">SOLARCALC</h4>
+                  <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-3">Photovoltaic Sizing & ROI Tool</p>
+                  <p className="text-gray-400 text-xs leading-relaxed">
+                    Industrial solar array estimator calculating kilowatt output projections, battery storage requirements, and payback ROI models for commercial sites.
+                  </p>
+                </div>
+                <button
+                  onClick={() => openInquiry("SolarCalc")}
+                  className="mt-6 w-full py-2 rounded-lg bg-gray-900 hover:bg-gray-800 text-gray-300 font-semibold text-xs tracking-wider uppercase border border-gray-800 cursor-pointer transition-colors"
+                >
+                  Join Waitlist
+                </button>
+              </div>
             </div>
           </div>
         )}
