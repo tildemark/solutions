@@ -77,6 +77,29 @@ export default function Home() {
     },
   ];
 
+  const dpaMasteryFeatures = [
+    {
+      title: "8-Stage Spaced Repetition (SRS)",
+      desc: "Intelligent review scheduling across 9 retention stages (Locked to Burned) with strict interval multipliers and penalty demotions.",
+      icon: "fas fa-brain",
+    },
+    {
+      title: "Difficulty Tier Gating (85% Guru Rule)",
+      desc: "5 progressive difficulty tiers spanning RA 10173, IRR, and NPC issuances; next tier unlocks only after 85% mastery.",
+      icon: "fas fa-layer-group",
+    },
+    {
+      title: "Offline-First Drift SQLite Architecture",
+      desc: "Fully functional offline study engine with local Drift DAOs, question tag indexing, and resilient progress tracking.",
+      icon: "fas fa-database",
+    },
+    {
+      title: "Hybrid Seed & Background OTA Sync",
+      desc: "Pre-loaded canonical NPC competency question seeds with non-destructive OTA sync for updated jurisprudence.",
+      icon: "fas fa-cloud-arrow-down",
+    },
+  ];
+
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"expanded" | "grid">("expanded");
 
@@ -302,6 +325,47 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+
+                {/* DPA Mastery Compact */}
+                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/45 p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all backdrop-blur-sm">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img src="/dpa-mastery-logo.png" alt="DPA Mastery" className="h-7 w-7 object-contain rounded bg-gray-900 p-0.5 border border-gray-800" />
+                        <h4 className="font-display font-extrabold text-lg text-white">DPA Mastery</h4>
+                      </div>
+                      <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
+                    </div>
+                    <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-2">DPO Certification Exam Prep</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                      Offline-first mobile app with an 8-stage SRS engine and difficulty gating for Philippine NPC DPO certification.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {["Flutter", "Drift (SQLite)", "Riverpod", "Next.js"].map((t) => (
+                        <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://dpa-mastery.sanchez.ph"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs tracking-wider uppercase text-center transition-colors"
+                      >
+                        Live Demo
+                      </a>
+                      <button
+                        onClick={() => openInquiry("DPA Mastery")}
+                        className="p-2 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 text-xs border border-indigo-500/30 cursor-pointer transition-colors"
+                        title="Get License Quote"
+                      >
+                        <i className="fas fa-file-invoice-dollar"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
@@ -393,6 +457,27 @@ export default function Home() {
                   onInquiry={openInquiry}
                 />
               </div>
+
+              {/* DPA Mastery Section */}
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">04 // Privacy Law & DPO Certification Prep</span>
+                  <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
+                </div>
+                <ProductCard
+                  title="DPA Mastery"
+                  subtitle="Spaced Repetition NPC DPO Certification Companion"
+                  description="An offline-first Flutter mobile application with Next.js web portal designed to prepare privacy professionals for the Philippine National Privacy Commission (NPC) DPO Competency Examination with an 8-stage SRS engine."
+                  tags={["Flutter", "Drift (SQLite)", "Riverpod", "Next.js", "Spaced Repetition (SRS)", "OTA Sync"]}
+                  features={dpaMasteryFeatures}
+                  status="released"
+                  logoUrl="/dpa-mastery-logo.png"
+                  demoUrl="https://dpa-mastery.sanchez.ph"
+                  githubUrl="https://github.com/tildemark/dpa-mastery"
+                  accentColor="indigo"
+                  onInquiry={openInquiry}
+                />
+              </div>
             </>
           )
         )}
@@ -401,7 +486,7 @@ export default function Home() {
         {(activeCategory === "all" || activeCategory === "wip") && (
           <div>
             <div className="mb-8">
-              <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">04 // Active Development Pipelines</span>
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">05 // Active Development Pipelines</span>
               <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
             </div>
 
