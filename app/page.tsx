@@ -295,14 +295,14 @@ export default function Home() {
                       </div>
                       <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
                     </div>
-                    <p className="text-[10px] text-amber-400 font-semibold font-mono uppercase tracking-wider mb-2">Smart Badge Design Studio</p>
+                    <p className="text-[10px] text-amber-400 font-semibold font-mono uppercase tracking-wider mb-2">Calling Card & Business Card Generator</p>
                     <p className="text-gray-400 text-xs leading-relaxed mb-4">
-                      Drag-and-drop vector card editor with dynamic CSV batch printing and smart RFID tag encoding.
+                      Custom calling card and business card generator with dynamic QR vCards, rich typography, and print-ready vector exports.
                     </p>
                   </div>
                   <div>
                     <div className="flex flex-wrap gap-1 mb-4">
-                      {["Next.js", "Canvas API", "Tailwind", "RFID/NFC"].map((t) => (
+                      {["Next.js", "Canvas API", "Tailwind", "QR / vCard"].map((t) => (
                         <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
                       ))}
                     </div>
@@ -419,34 +419,34 @@ export default function Home() {
               {/* CCARD Studio Section */}
               <div>
                 <div className="mb-6">
-                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">03 // Custom Card & Badge Design Studio</span>
+                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">03 // Calling Card & Business Card Generator</span>
                   <div className="h-0.5 w-12 bg-amber-500 mt-1"></div>
                 </div>
                 <ProductCard
                   title="CCARD Studio"
-                  subtitle="Smart Card & Identification Design Platform"
-                  description="A comprehensive web design suite and issuance platform built for custom ID badging, RFID access smart cards, and corporate asset tags with dynamic template rendering and print automation."
-                  tags={["Next.js", "TypeScript", "Canvas API", "Tailwind CSS", "SVG Export", "RFID/NFC"]}
+                  subtitle="Digital & Print Calling Card Generator"
+                  description="A modern, high-precision calling card and digital business card generator. Design elegant physical and virtual cards with dynamic vCard QR codes, custom typography, social contact links, and print-ready high-resolution exports."
+                  tags={["Next.js", "TypeScript", "Canvas API", "Tailwind CSS", "SVG Export", "QR / vCard"]}
                   features={[
                     {
-                      title: "Visual Card Editor",
-                      desc: "Drag-and-drop vector layout engine for custom ID badges, membership cards, and asset tags.",
-                      icon: "fas fa-id-card",
+                      title: "Visual Card Designer",
+                      desc: "Intuitive layout and styling engine for crafting professional calling cards, executive namecards, and contact cards.",
+                      icon: "fas fa-address-card",
                     },
                     {
-                      title: "Dynamic Data Binding & Batch Print",
-                      desc: "Import CSV/JSON data sources to instantly batch generate and export high-resolution print-ready cards.",
+                      title: "Smart vCard & QR Codes",
+                      desc: "Instant contact-sharing QR codes and digital vCards embedded directly into your card designs.",
+                      icon: "fas fa-qrcode",
+                    },
+                    {
+                      title: "Print-Ready Vector Export",
+                      desc: "Generate high-DPI, bleed-adjusted PDF and SVG exports optimized for commercial print shops.",
                       icon: "fas fa-print",
                     },
                     {
-                      title: "Smart Card Encoding Suite",
-                      desc: "Integrate RFID, NFC data structures, and dynamic 2D barcodes into badge templates for hardware scanners.",
-                      icon: "fas fa-microchip",
-                    },
-                    {
-                      title: "Role-Based Issuance Control",
-                      desc: "Audit logs and approval workflows ensuring secure printing and anti-duplication enforcement.",
-                      icon: "fas fa-user-shield",
+                      title: "Batch Generation & Presets",
+                      desc: "Generate consistent company-wide calling cards from contact lists with curated modern presets.",
+                      icon: "fas fa-layer-group",
                     },
                   ]}
                   status="released"

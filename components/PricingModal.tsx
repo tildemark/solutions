@@ -95,7 +95,7 @@ export default function PricingModal({ isOpen, onClose, selectedProduct }: Prici
               >
                 <option value="Trace">T.R.A.C.E. Asset Engine</option>
                 <option value="EquiYield">EquiYield Cooperative Manager</option>
-                <option value="CCARD Studio">CCARD Smart Badge Studio</option>
+                <option value="CCARD Studio">CCARD Calling Card Generator</option>
                 <option value="DPA Mastery">DPA Mastery - DPO Exam Prep</option>
                 <option value="Tanod">Tanod Data Privacy Suite (Waitlist)</option>
                 <option value="Tala">Tala BIR Accounting (Waitlist)</option>

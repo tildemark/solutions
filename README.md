@@ -1,6 +1,6 @@
 # Sanchez Solutions Portfolio
 
-A premium, cyber-industrial themed software showcase designed to market, present, and license enterprise-grade software products: **T.R.A.C.E. (Asset Management Engine)**, **EquiYield (Cooperative Savings Suite)**, and **CCARD Studio (Smart Card & ID Design Platform)**, alongside active pipeline slots for **Tanod**, **Tala**, **Apex Smile**, **Beacon**, **Cellular Bridge**, **Susi**, **MLBB Forge**, and **SolarCalc**.
+A premium, cyber-industrial themed software showcase designed to market, present, and license enterprise-grade software products: **T.R.A.C.E. (Asset Management Engine)**, **EquiYield (Cooperative Savings Suite)**, and **CCARD Studio (Calling Card & Business Card Generator)**, alongside active pipeline slots for **Tanod**, **Tala**, **Apex Smile**, **Beacon**, **Cellular Bridge**, **Susi**, **MLBB Forge**, and **SolarCalc**.
 
 ## 🌟 Tech Stack
 
