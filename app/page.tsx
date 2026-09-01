@@ -146,6 +146,29 @@ export default function Home() {
     },
   ];
 
+  const synapseFeatures = [
+    {
+      title: "8-Stage Spaced Repetition Engine (SRS)",
+      desc: "Progression across 9 mastery states (Available to Burned) with research-backed review intervals and 2-stage penalty demotions.",
+      icon: "fas fa-brain",
+    },
+    {
+      title: "Modular Knowledge Pack Architecture",
+      desc: "Curriculum decoupled DLC-style content packs loaded directly into local SQLite for computer science, engineering, and certifications.",
+      icon: "fas fa-cubes",
+    },
+    {
+      title: "Zero-Knowledge Cryptographic HMAC Certificates",
+      desc: "Verifiable graduation certificates with embedded dynamic QR signatures and one-tap publishing to LinkedIn & Facebook.",
+      icon: "fas fa-certificate",
+    },
+    {
+      title: "100% Offline-First Privacy (Drift SQLite)",
+      desc: "Zero data collection, zero analytics SDKs, and zero telemetry with complete local Drift SQLite and Riverpod state engine.",
+      icon: "fas fa-shield-halved",
+    },
+  ];
+
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"expanded" | "grid">("expanded");
 
@@ -494,6 +517,47 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+
+                {/* Synapse Compact */}
+                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/45 p-6 flex flex-col justify-between hover:border-indigo-500/40 transition-all backdrop-blur-sm">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img src="/synapse-logo.png" alt="Synapse" className="h-7 w-7 object-contain rounded bg-gray-900 p-0.5 border border-gray-800" />
+                        <h4 className="font-display font-extrabold text-lg text-white">Synapse</h4>
+                      </div>
+                      <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
+                    </div>
+                    <p className="text-[10px] text-indigo-400 font-semibold font-mono uppercase tracking-wider mb-2">Engineering & Academic Spaced Repetition</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                      Offline-first SRS learning engine with modular knowledge packs, verifiable zero-knowledge HMAC credentials, and sequential curriculum mastery.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {["Flutter", "Drift (SQLite)", "Riverpod", "Next.js 16"].map((t) => (
+                        <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://synapse.sanchez.ph"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 rounded-xl bg-indigo-500 hover:bg-indigo-400 text-white font-bold text-xs tracking-wider uppercase text-center transition-colors"
+                      >
+                        Live App
+                      </a>
+                      <button
+                        onClick={() => openInquiry("Synapse")}
+                        className="p-2 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 text-xs border border-indigo-500/30 cursor-pointer transition-colors"
+                        title="Get License Quote"
+                      >
+                        <i className="fas fa-file-invoice-dollar"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
@@ -646,6 +710,27 @@ export default function Home() {
                   onInquiry={openInquiry}
                 />
               </div>
+
+              {/* Synapse Section */}
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">07 // Engineering & Academic Mastery Engine</span>
+                  <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
+                </div>
+                <ProductCard
+                  title="Synapse"
+                  subtitle="Offline-First Spaced Repetition Engine for Engineering"
+                  description="An academic-grade, offline-first Spaced Repetition System (SRS) learning platform for high-retention mastery across technical domains. Features modular Knowledge Packs, zero-knowledge HMAC certificates, and comprehensive Scholar Dossier analytics."
+                  tags={["Flutter", "Drift (SQLite)", "Riverpod", "Next.js 16", "Spaced Repetition (SRS)", "HMAC Certs"]}
+                  features={synapseFeatures}
+                  status="released"
+                  logoUrl="/synapse-logo.png"
+                  demoUrl="https://synapse.sanchez.ph"
+                  githubUrl="https://github.com/tildemark/synapse"
+                  accentColor="indigo"
+                  onInquiry={openInquiry}
+                />
+              </div>
             </>
           )
         )}
@@ -654,7 +739,7 @@ export default function Home() {
         {(activeCategory === "all" || activeCategory === "wip") && (
           <div>
             <div className="mb-8">
-              <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">07 // Active Development Pipelines</span>
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">08 // Active Development Pipelines</span>
               <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
             </div>
 

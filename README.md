@@ -1,6 +1,6 @@
 # Sanchez Solutions Portfolio
 
-A premium, cyber-industrial themed software showcase designed to market, present, and license enterprise-grade software products: **T.R.A.C.E. (Asset Management Engine)**, **EquiYield (Cooperative Savings Suite)**, **CCARD Studio (Calling Card & Business Card Generator)**, **DPA Mastery (Spaced Repetition NPC DPO Prep)**, **SILIP (Philippine Data Privacy Search Engine)**, and **Vault Drop Explorer (Cloud Object Storage File Manager)**, alongside active pipeline slots for **Tanod**, **Tala**, **Apex Smile**, **Beacon**, **Cellular Bridge**, **Susi**, **MLBB Forge**, and **SolarCalc**.
+A premium, cyber-industrial themed software showcase designed to market, present, and license enterprise-grade software products: **T.R.A.C.E. (Asset Management Engine)**, **EquiYield (Cooperative Savings Suite)**, **CCARD Studio (Calling Card & Business Card Generator)**, **DPA Mastery (Spaced Repetition NPC DPO Prep)**, **SILIP (Philippine Data Privacy Search Engine)**, **Vault Drop Explorer (Cloud Object Storage File Manager)**, and **Synapse (Academic Spaced Repetition Engine)**, alongside active pipeline slots for **Tanod**, **Tala**, **Apex Smile**, **Beacon**, **Cellular Bridge**, **Susi**, **MLBB Forge**, and **SolarCalc**.
 
 ## 🌟 Tech Stack
 
