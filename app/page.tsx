@@ -100,6 +100,52 @@ export default function Home() {
     },
   ];
 
+  const silipFeatures = [
+    {
+      title: "Legal & Relevance BM25 Dual-Mode Search",
+      desc: "Dual retrieval engines: Legal Mode prioritizing primary statutory sources (DPA RA 10173 / IRR) and Relevance Mode with BM25 term weighting.",
+      icon: "fas fa-scale-balanced",
+    },
+    {
+      title: "Comprehensive NPC Jurisprudence Corpus",
+      desc: "Full indexing across RA 10173, IRR, NPC Circulars, Advisories, Orders, Decisions, and Commission Resolutions.",
+      icon: "fas fa-book-bookmark",
+    },
+    {
+      title: "Dynamic Query Highlighting & Filters",
+      desc: "Real-time document category filtering with instant keyword match highlighting for swift legal research.",
+      icon: "fas fa-highlighter",
+    },
+    {
+      title: "AI-Powered Privacy Document Insights",
+      desc: "Deep legal text analysis with metadata extraction and direct references to authoritative statutory citations.",
+      icon: "fas fa-wand-magic-sparkles",
+    },
+  ];
+
+  const vaultDropFeatures = [
+    {
+      title: "Multi-Cloud Object Storage (AWS S3 & OCI)",
+      desc: "Native dual-engine file management supporting Amazon Web Services S3 and Oracle Cloud Infrastructure Object Storage buckets.",
+      icon: "fas fa-cloud-arrow-up",
+    },
+    {
+      title: "Zero-Knowledge Local Credential Vault",
+      desc: "Client-side encrypted key persistence keeping cloud access tokens and API secrets secure within your device environment.",
+      icon: "fas fa-vault",
+    },
+    {
+      title: "Drag & Drop Multi-Part Parallel Transfer",
+      desc: "High-throughput parallel chunk uploads and downloads with pause/resume support and real-time transfer telemetry.",
+      icon: "fas fa-arrows-up-down",
+    },
+    {
+      title: "Presigned URL Generator & Bucket Inspector",
+      desc: "Instantly create time-limited presigned sharing URLs, inspect bucket ACL policies, and preview cloud assets without public exposure.",
+      icon: "fas fa-link",
+    },
+  ];
+
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [viewMode, setViewMode] = useState<"expanded" | "grid">("expanded");
 
@@ -366,6 +412,88 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+
+                {/* SILIP Compact */}
+                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/45 p-6 flex flex-col justify-between hover:border-cyan-500/40 transition-all backdrop-blur-sm">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img src="/silip-logo.png" alt="SILIP" className="h-7 w-7 object-contain rounded bg-gray-900 p-0.5 border border-gray-800" />
+                        <h4 className="font-display font-extrabold text-lg text-white">SILIP</h4>
+                      </div>
+                      <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
+                    </div>
+                    <p className="text-[10px] text-cyan-400 font-semibold font-mono uppercase tracking-wider mb-2">Philippine Data Privacy Search Engine</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                      Searchable interface for Philippine data privacy laws, NPC circulars, and legal documents with dual-mode BM25 retrieval and intelligent highlighting.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {["Next.js", "BM25 Ranking", "TypeScript", "Tailwind CSS"].map((t) => (
+                        <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://silip.sanchez.ph"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-xs tracking-wider uppercase text-center transition-colors"
+                      >
+                        Live App
+                      </a>
+                      <button
+                        onClick={() => openInquiry("SILIP")}
+                        className="p-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 text-xs border border-cyan-500/30 cursor-pointer transition-colors"
+                        title="Get License Quote"
+                      >
+                        <i className="fas fa-file-invoice-dollar"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Vault Drop Explorer Compact */}
+                <div className="relative overflow-hidden rounded-2xl border border-gray-800 bg-gray-950/45 p-6 flex flex-col justify-between hover:border-amber-500/40 transition-all backdrop-blur-sm">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-2">
+                        <img src="/vault-drop-logo.png" alt="Vault Drop Explorer" className="h-7 w-7 object-contain rounded bg-gray-900 p-0.5 border border-gray-800" />
+                        <h4 className="font-display font-extrabold text-lg text-white">Vault Drop</h4>
+                      </div>
+                      <span className="px-2 py-0.5 text-[8px] font-bold uppercase tracking-wider rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Production Ready</span>
+                    </div>
+                    <p className="text-[10px] text-amber-400 font-semibold font-mono uppercase tracking-wider mb-2">Cloud File Manager for AWS S3 & OCI</p>
+                    <p className="text-gray-400 text-xs leading-relaxed mb-4">
+                      Secure desktop & web file manager for Amazon Web Services S3 and Oracle Cloud Infrastructure Object Storage with local encrypted vaults.
+                    </p>
+                  </div>
+                  <div>
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {["React 19", "AWS S3 SDK", "OCI Storage", "Tailwind CSS"].map((t) => (
+                        <span key={t} className="text-[9px] px-1.5 py-0.5 rounded bg-gray-900 border border-gray-800 text-gray-400 font-mono">{t}</span>
+                      ))}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <a
+                        href="https://vaultdrop.sanchez.ph"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs tracking-wider uppercase text-center transition-colors"
+                      >
+                        Live App
+                      </a>
+                      <button
+                        onClick={() => openInquiry("Vault Drop Explorer")}
+                        className="p-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-xs border border-amber-500/30 cursor-pointer transition-colors"
+                        title="Get License Quote"
+                      >
+                        <i className="fas fa-file-invoice-dollar"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
@@ -478,6 +606,46 @@ export default function Home() {
                   onInquiry={openInquiry}
                 />
               </div>
+
+              {/* SILIP Section */}
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest font-mono">05 // Legal Intelligence & Privacy Search Engine</span>
+                  <div className="h-0.5 w-12 bg-cyan-500 mt-1"></div>
+                </div>
+                <ProductCard
+                  title="SILIP"
+                  subtitle="Searchable Interface for Legal Information & Privacy"
+                  description="A high-performance legal search engine and intelligence platform indexing the Philippine Data Privacy Act of 2012 (RA 10173), its IRR, and comprehensive National Privacy Commission (NPC) issuances with dual Legal/Relevance BM25 ranking modes."
+                  tags={["Next.js", "TypeScript", "BM25 Ranking", "Tailwind CSS", "Legal Search", "NPC Corpus"]}
+                  features={silipFeatures}
+                  status="released"
+                  logoUrl="/silip-logo.png"
+                  demoUrl="https://silip.sanchez.ph"
+                  accentColor="cyan"
+                  onInquiry={openInquiry}
+                />
+              </div>
+
+              {/* Vault Drop Explorer Section */}
+              <div>
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-amber-400 uppercase tracking-widest font-mono">06 // Multi-Cloud Object Storage Management</span>
+                  <div className="h-0.5 w-12 bg-amber-500 mt-1"></div>
+                </div>
+                <ProductCard
+                  title="Vault Drop Explorer"
+                  subtitle="Secure Multi-Cloud Object Storage File Manager"
+                  description="A streamlined, secure desktop and web file manager for AWS S3 and Oracle Cloud Infrastructure (OCI) Object Storage. Features client-side encrypted credentials, rapid multi-part parallel file transfers, and presigned URL sharing."
+                  tags={["React 19", "AWS S3 SDK", "OCI Object Storage", "Tailwind CSS", "Encrypted Vault", "Presigned URLs"]}
+                  features={vaultDropFeatures}
+                  status="released"
+                  logoUrl="/vault-drop-logo.png"
+                  demoUrl="https://vaultdrop.sanchez.ph"
+                  accentColor="amber"
+                  onInquiry={openInquiry}
+                />
+              </div>
             </>
           )
         )}
@@ -486,7 +654,7 @@ export default function Home() {
         {(activeCategory === "all" || activeCategory === "wip") && (
           <div>
             <div className="mb-8">
-              <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">05 // Active Development Pipelines</span>
+              <span className="text-xs font-bold text-indigo-400 uppercase tracking-widest font-mono">07 // Active Development Pipelines</span>
               <div className="h-0.5 w-12 bg-indigo-500 mt-1"></div>
             </div>
 
