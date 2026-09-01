@@ -16,15 +16,17 @@ export default function Navbar({ onOpenInquiry }: NavbarProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo & Brand */}
-          <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-cyan-500 to-indigo-600 text-white font-display font-extrabold text-xl shadow-lg shadow-cyan-500/20">
-              S
-            </div>
+          <a href="#" className="flex items-center gap-3 group">
+            <img
+              src="/solutions-logo.png"
+              alt="Sanchez Solutions"
+              className="h-10 w-10 object-contain rounded-xl border border-cyan-500/30 bg-gray-950/80 p-0.5 shadow-lg shadow-cyan-500/20 group-hover:border-cyan-400/60 transition-all"
+            />
             <div>
-              <span className="font-display font-bold text-white text-lg tracking-tight block">SANCHEZ.PH</span>
+              <span className="font-display font-bold text-white text-lg tracking-tight block group-hover:text-cyan-300 transition-colors">SANCHEZ.PH</span>
               <span className="text-[10px] uppercase font-semibold text-cyan-400 tracking-widest block -mt-1">Software Architecture</span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">

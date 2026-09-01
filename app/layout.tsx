@@ -15,14 +15,29 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://solutions.sanchez.ph"),
   title: "Sanchez Solutions | Enterprise Software Suites",
-  description: "High-performance software systems designed for robust operations. Featuring TRACE Asset Management and EquiYield Savings & Loan platform.",
-  keywords: ["software solutions", "asset tracking", "RFID asset tracking", "hospitality software", "cooperative savings software", "coop loan manager", "on-premises systems", "Philippines software developer", "data privacy"],
+  description: "High-performance software systems designed for robust operations. Featuring TRACE, EquiYield, CCARD Studio, DPA Mastery, SILIP, and Vault Drop Explorer.",
+  keywords: ["software solutions", "asset tracking", "RFID asset tracking", "hospitality software", "cooperative savings software", "coop loan manager", "on-premises systems", "Philippines software developer", "data privacy", "cloud storage"],
   authors: [{ name: "Alfredo Sanchez Jr." }],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/icon-192.png",
+  },
   openGraph: {
     title: "Sanchez Solutions | Enterprise Software Suites",
     description: "Robust on-premises and web applications built for business compliance, operations, and financial auditing.",
     url: "https://solutions.sanchez.ph",
+    siteName: "Sanchez Solutions",
+    images: [
+      {
+        url: "/solutions-logo.png",
+        width: 1024,
+        height: 1024,
+        alt: "Sanchez Solutions Logo",
+      },
+    ],
     type: "website",
   },
 };
